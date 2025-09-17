@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Payment SanzzNunez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent1:#6366f1;
+      --accent2:#3b82f6;
+      --glass: rgba(255,255,255,0.04);
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      background: var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{
+      width:100%;
+      max-width:420px;
+      background: var(--card);
+      border-radius:18px;
+      padding:20px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    header{
+      text-align:center;
+      margin-bottom:16px;
+    }
+    .logo-img{
+      width:64px;height:64px;border-radius:12px;
+      object-fit:cover;
+      margin:0 auto 10px auto;
+    }
+    h1{margin:0;font-size:20px;font-weight:800;letter-spacing:-0.3px;color:#fff}
+    p.subtitle{margin:4px 0 0 0;color:rgba(255,255,255,0.65);font-size:13px}.section-title{color:#fff;font-size:15px;font-weight:700;margin:16px 0 10px 4px}
+
+.payment-item{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);margin-bottom:10px;border:1px solid rgba(255,255,255,0.05)}
+.left{display:flex;flex-direction:column}
+.method-title{font-weight:600;color:#fff;font-size:14px}
+.number{font-family:monospace;font-weight:700;font-size:13px;color:rgba(255,255,255,0.85)}
+
+.btn-copy{cursor:pointer;padding:6px 14px;border-radius:8px;border:0;font-weight:600;font-size:13px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;transition:all .2s}
+.btn-copy:hover{opacity:0.9;box-shadow:0 0 10px rgba(59,130,246,0.6)}
+
+.qris-wrap{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);text-align:center;margin-bottom:20px}
+.qris-img{width:100%;max-width:320px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:#0b1220;animation: float 4s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+.footer{margin-top:16px;font-size:12px;color:rgba(255,255,255,0.6);text-align:center}
+.brand{font-weight:700;color:rgba(255,255,255,0.9)}
+
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <img src="https://i.postimg.cc/s234bWmT/logo.png alt="Logo SanzzNunez" class="logo-img">
+      <h1>Payment SanzzNunez</h1>
+      <p class="subtitle">Semua pembayaran dalam satu halaman</p>
+    </header><div class="qris-wrap">
+  <h2 style="color:white;font-size:15px;margin:0 0 10px 0">QRIS</h2>
+  <a id="qris-link" href="https://photos.app.goo.gl/psFzHCcNdocMZDV98" target="_blank" rel="noopener noreferrer">
+    <img class="qris-img" id="qris-img" src="https://i.postimg.cc/15LR3cN3/Screenshot-2025-09-16-17-52-14-174-edit-id-dana.jpg" alt="QRIS SanzzNunez"/>
+  </a>
+</div>
+
+<div class="section-title">E-Wallet</div>
+<div class="payment-item">
+  <div class="left">
+    <div class="method-title">Dana</div>
+    <div class="number">088985371194</div>
+  </div>
+  <button class="btn-copy" onclick="copyNumber('088985371194')">Salin</button>
+</div>
+
+<div class="section-title">Transfer Bank</div>
+<div class="payment-item">
+  <div class="left">
+    <div class="method-title">Bank Jago</div>
+    <div class="number">BELUM ADA</div>
+  </div>
+  <button class="btn-copy" onclick="copyNumber('1234567890')">Salin</button>
+</div>
+
+<div class="section-title">Konfirmasi & Bantuan</div>
+<div class="payment-item">
+  <div class="method-title">WhatsApp</div>
+  <div class="number">+62 858-0331-3451</div>
+</div>
+<div class="payment-item">
+  <div class="method-title">Telegram</div>
+  <div class="number">@SanzzNunez</div>
+</div>
+
+<div class="footer">
+  <div class="brand">SanzzNunez</div>
+  <div>© 2025 SanzzNunez — "Simple · Cepat · Aman"</div>
+</div>
+
+  </div>  <script>
+    function copyNumber(n){
+      if(!navigator.clipboard){
+        const ta=document.createElement('textarea');
+        ta.value=n;document.body.appendChild(ta);ta.select();
+        try{document.execCommand('copy')}catch(e){}
+        ta.remove();alert('Nomor disalin: '+n);return;
+      }
+      navigator.clipboard.writeText(n).then(()=>{alert('Nomor disalin: '+n)},()=>{alert('Gagal menyalin, silakan salin manual: '+n)})
+    }
+  </script></body>
+</html>
